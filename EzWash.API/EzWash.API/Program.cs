@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EzWash.API.Domain.Persistence.Contexts;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EzWash.API
 {
@@ -13,7 +15,18 @@ namespace EzWash.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host=CreateHostBuilder(args).Build();
+            
+            // pre run sentences
+
+            using (var scope=host.Services.CreateScope())
+            using (var context=scope.ServiceProvider.GetService<AppDbContext>())
+            {
+                //Ensure Database is created including seed data
+                context.Database.EnsureCreated();
+            }
+            
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
