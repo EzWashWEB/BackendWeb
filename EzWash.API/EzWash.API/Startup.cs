@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EzWash.API.Domain.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace EzWash.API
 {
@@ -28,6 +30,24 @@ namespace EzWash.API
         {
 
             services.AddControllers();
+            
+            // Database Connection Configuration
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+            });
+            
+            //TODO: Dependency Injection Configuration
+            //HINT: services.AddScoped<ICategoryRepository, CategoryRepository>();
+            //HINT: services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //HINT: services.AddScoped<ICategoryService, CategoryService>();
+
+            // Apply Endpoint Naming Convention
+            services.AddRouting(options => options.LowercaseUrls = true);
+            
+            // AutoMapper Setup
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EzWash.API", Version = "v1" });
