@@ -446,3 +446,8 @@ fabric.properties
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+EzWash.API/.idea/.idea.EzWash.API/.idea/encodings.xml
+EzWash.API/.idea/.idea.EzWash.API/.idea/indexLayout.xml
+EzWash.API/.idea/.idea.EzWash.API/.idea/riderModule.iml
+EzWash.API/.idea/.idea.EzWash.API/.idea/vcs.xml
+EzWash.API/.idea/.idea.EzWash.API/.idea/.gitignore
