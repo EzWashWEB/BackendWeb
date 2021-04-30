@@ -432,3 +432,17 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.EzWash.API.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Libraries\Documents\Ciclo 7\Web\Repo\BackendWeb\EzWash.API\.idea\.idea.EzWash.API\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
