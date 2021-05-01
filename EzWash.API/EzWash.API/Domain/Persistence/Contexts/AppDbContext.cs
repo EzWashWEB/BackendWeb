@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EzWash.API.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace EzWash.API.Domain.Persistence.Contexts
 {
