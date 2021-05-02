@@ -1,4 +1,5 @@
-﻿using EzWash.API.Extensions;
+﻿using EzWash.API.Domain.Models;
+using EzWash.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EzWash.API.Domain.Persistence.Contexts
@@ -11,6 +12,8 @@ namespace EzWash.API.Domain.Persistence.Contexts
         
         //TODO: Definir las entidades que pasarian a tablas a la BD
         //HINT: public DbSet<Category> Categories { get; set; }
+        
+        public DbSet<Department> Deparments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,10 +24,16 @@ namespace EzWash.API.Domain.Persistence.Contexts
             //TODO: Inicializar las tablas segun las entidades
             //HINT: builder.Entity<Category>().ToTable("Categories");
             
+            builder.Entity<Department>().ToTable("Departments");
+            
             //TODO: Establecer constraints como PK, IsRequired, etc.
             //HINT: builder.Entity<Category>().HasKey(p => p.Id);
             //HINT: builder.Entity<Category>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             //HINT: builder.Entity<Category>().Property(p => p.Name).IsRequired().HasMaxLength(30);
+
+            builder.Entity<Department>().HasKey(p => p.Id);
+            builder.Entity<Department>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Department>().Property(p => p.Name).IsRequired().HasMaxLength(30);
             
             //TODO: Establecer relaciones con otras tablas
             /*
@@ -50,6 +59,13 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 .HasForeignKey(pt => pt.TagId);
              */
             
+            /* TODO: DEPARTMENT: Activar cuando Province este implementado
+             builder.Entity<Department>()
+                .HasMany(p => p.Provinces)
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId);
+            */
+            
             //TODO: Crear seed data o data inicial para no tener que crearlo en los endpoints a cada rato
             /*
             builder.Entity<Product>().HasData
@@ -66,8 +82,22 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 }
             );
              */
+
+            builder.Entity<Department>().HasData(
+                new Department
+                {
+                    Id=1, Name="Lima"
+                },
+                new Department
+                {
+                    Id=2, Name="Piura"
+                },
+                new Department
+                {
+                    Id=3, Name="Tacna"
+                }
+            );
             
-            //TODO: Realizar extension para transformar los nombres de las tablas a la convencion snakecase
             builder.ApplySnakeCaseNamingConvention();
         }
     }
