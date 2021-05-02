@@ -12,6 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EzWash.API.Domain.Persistence.Contexts;
+using EzWash.API.Domain.Persistence.Repositories;
+using EzWash.API.Domain.Services;
+using EzWash.API.Persistence.Repositories;
+using EzWash.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace EzWash.API
@@ -41,6 +45,12 @@ namespace EzWash.API
             //HINT: services.AddScoped<ICategoryRepository, CategoryRepository>();
             //HINT: services.AddScoped<IUnitOfWork, UnitOfWork>();
             //HINT: services.AddScoped<ICategoryService, CategoryService>();
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            
+            services.AddScoped<IDepartmentService, DepartmentService>();
 
             // Apply Endpoint Naming Convention
             services.AddRouting(options => options.LowercaseUrls = true);
