@@ -13,6 +13,6 @@ namespace EzWash.API.Resources
 
         [Required]
         [MaxLength(30)]
-        public string Currencie { get; set; }
+        public string Currency { get; set; }
     }
 }

@@ -58,7 +58,7 @@ namespace EzWash.API.Domain.Persistence.Contexts
             builder.Entity<Wallet>().HasKey(p => p.Id);
             builder.Entity<Wallet>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Wallet>().Property(p => p.Amount).IsRequired();
-            builder.Entity<Wallet>().Property(p => p.Currencie).IsRequired().HasMaxLength(30);
+            builder.Entity<Wallet>().Property(p => p.Currency).IsRequired().HasMaxLength(30);
 
 
 
@@ -139,19 +139,19 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 {
                     Id = 1,
                     Amount = 0,
-                    Currencie = "Soles"
+                    Currency = "Soles"
                 },
                 new Wallet
                 {
                     Id = 2,
                     Amount = 50,
-                    Currencie = "Soles"
+                    Currency = "Soles"
                 },
                 new Wallet
                 {
                     Id = 3,
                     Amount = 10,
-                    Currencie = "Soles"
+                    Currency = "Soles"
                 }
             );
 

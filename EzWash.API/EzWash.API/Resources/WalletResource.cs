@@ -9,6 +9,6 @@ namespace EzWash.API.Resources
     {
         public int Id { get; set; }
         public double Amount { get; set; }
-        public string Currencie { get; set; }
+        public string Currency { get; set; }
     }
 }
