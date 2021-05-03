@@ -24,7 +24,7 @@ namespace EzWash.API.Domain.Persistence.Contexts
 
         //INTERACTIONS
         public DbSet<Plan> Plans { get; set; }
-
+        public DbSet<Benefit> Benefits { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -74,6 +74,10 @@ namespace EzWash.API.Domain.Persistence.Contexts
             builder.Entity<Plan>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Plan>().Property(p => p.Name).IsRequired().HasMaxLength(30);
 
+
+            builder.Entity<Benefit>().HasKey(p => p.Id);
+            builder.Entity<Benefit>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Benefit>().Property(p => p.Description).IsRequired().HasMaxLength(30);
 
             //TODO: Establecer relaciones con otras tablas
             /*
@@ -193,7 +197,32 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 }
                 
             );
-            
+
+            builder.Entity<Benefit>().HasData(
+               new Benefit
+               {
+                   Id = 1, Description = "Quick Wash"
+               },
+               new Benefit
+               {
+                   Id = 2, Description = "Deliver Free"
+               },
+
+               new Benefit
+               {
+                   Id = 3,
+                   Description = "free scented"
+               }
+
+           );
+
+            /*
+               builder.Entity<Benefit>()
+               .HasMany(p => p.Benefit)
+               .WithOne(p => p.Plan)
+               .HasForeignKey(p => p.PlanId);
+            */
+
 
             builder.ApplySnakeCaseNamingConvention();
         }

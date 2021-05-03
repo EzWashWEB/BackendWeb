@@ -18,6 +18,8 @@ namespace EzWash.API.Mapping
 
             CreateMap<Plan, PlanResource>();
 
+            CreateMap<Benefit, BenefitResource>();
+
         }
     }
 }
