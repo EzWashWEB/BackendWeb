@@ -54,9 +54,14 @@ namespace EzWash.API
 
 
 
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletService, WalletService>();
+
+
             services.AddScoped<IPlanRepository, PlanRepository>();
 
             services.AddScoped<IPlanService, PlanService>();
+
 
             // Apply Endpoint Naming Convention
             services.AddRouting(options => options.LowercaseUrls = true);
