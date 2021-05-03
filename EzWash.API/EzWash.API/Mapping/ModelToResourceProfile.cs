@@ -13,8 +13,10 @@ namespace EzWash.API.Mapping
             CreateMap<Department, DepartmentResource>();
 
             CreateMap<Wallet, WalletResource>();
-=======
+
             CreateMap<Plan, PlanResource>();
+
+            CreateMap<Benefit, BenefitResource>();
 
         }
     }

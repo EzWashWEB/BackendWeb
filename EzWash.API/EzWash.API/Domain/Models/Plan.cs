@@ -11,6 +11,6 @@ namespace EzWash.API.Domain.Models
         public string Name { get; set; }
         //one to many con Benefit
         //TODO: implementar Benefit
-        //public IList<Benefit> Benefits { get; set; } = new List<Benefit>();
+        public IList<Benefit> Benefits { get; set; } = new List<Benefit>();
     }
 }
