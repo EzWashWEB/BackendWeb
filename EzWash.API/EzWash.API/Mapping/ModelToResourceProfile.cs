@@ -11,7 +11,11 @@ namespace EzWash.API.Mapping
             //TODO: Create Model to Resource Mapping
             
             CreateMap<Department, DepartmentResource>();
+
             CreateMap<Wallet, WalletResource>();
+=======
+            CreateMap<Plan, PlanResource>();
+
         }
     }
 }

@@ -9,7 +9,11 @@ namespace EzWash.API.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveDepartmentResource, Department>();
+
             CreateMap<SaveWalletResource, Wallet>();
+
+            CreateMap<SavePlanResource, Plan>();
+
         }
     }
 }

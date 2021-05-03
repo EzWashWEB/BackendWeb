@@ -13,8 +13,19 @@ namespace EzWash.API.Domain.Persistence.Contexts
         //TODO: Definir las entidades que pasarian a tablas a la BD
         //HINT: public DbSet<Category> Categories { get; set; }
         
+        //GEOGRAPHIC
         public DbSet<Department> Deparments { get; set; }
+
         public DbSet<Wallet> Wallets { get; set; }
+
+
+
+
+        //INTERACTIONS
+        public DbSet<Plan> Plans { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -25,7 +36,13 @@ namespace EzWash.API.Domain.Persistence.Contexts
             //HINT: builder.Entity<Category>().ToTable("Categories");
             
             builder.Entity<Department>().ToTable("Departments");
+
             builder.Entity<Wallet>().ToTable("Wallets");
+
+
+
+            builder.Entity<Plan>().ToTable("Plans");
+
 
             //TODO: Establecer constraints como PK, IsRequired, etc.
             //HINT: builder.Entity<Category>().HasKey(p => p.Id);
@@ -37,10 +54,23 @@ namespace EzWash.API.Domain.Persistence.Contexts
             builder.Entity<Department>().Property(p => p.Name).IsRequired().HasMaxLength(30);
 
 
+
             builder.Entity<Wallet>().HasKey(p => p.Id);
             builder.Entity<Wallet>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Wallet>().Property(p => p.Amount).IsRequired();
             builder.Entity<Wallet>().Property(p => p.Currencie).IsRequired().HasMaxLength(30);
+
+
+
+
+
+
+
+            builder.Entity<Plan>().HasKey(p => p.Id);
+            builder.Entity<Plan>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Plan>().Property(p => p.Name).IsRequired().HasMaxLength(30);
+
+
             //TODO: Establecer relaciones con otras tablas
             /*
              Uno a muchos
@@ -124,6 +154,20 @@ namespace EzWash.API.Domain.Persistence.Contexts
                     Currencie = "Soles"
                 }
             );
+
+
+            builder.Entity<Plan>().HasData(
+                new Plan
+                {
+                    Id = 1, Name = "Free"
+                },
+                new Plan
+                {
+                    Id = 2, Name = "Premium"
+                }
+                
+            );
+            
 
             builder.ApplySnakeCaseNamingConvention();
         }
