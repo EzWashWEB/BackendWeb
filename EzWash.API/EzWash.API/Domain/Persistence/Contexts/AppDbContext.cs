@@ -13,7 +13,14 @@ namespace EzWash.API.Domain.Persistence.Contexts
         //TODO: Definir las entidades que pasarian a tablas a la BD
         //HINT: public DbSet<Category> Categories { get; set; }
         
+        //GEOGRAPHIC
         public DbSet<Department> Deparments { get; set; }
+
+
+
+        //INTERACTIONS
+        public DbSet<Plan> Plans { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -25,7 +32,10 @@ namespace EzWash.API.Domain.Persistence.Contexts
             //HINT: builder.Entity<Category>().ToTable("Categories");
             
             builder.Entity<Department>().ToTable("Departments");
-            
+
+
+            builder.Entity<Plan>().ToTable("Plans");
+
             //TODO: Establecer constraints como PK, IsRequired, etc.
             //HINT: builder.Entity<Category>().HasKey(p => p.Id);
             //HINT: builder.Entity<Category>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -34,7 +44,13 @@ namespace EzWash.API.Domain.Persistence.Contexts
             builder.Entity<Department>().HasKey(p => p.Id);
             builder.Entity<Department>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Department>().Property(p => p.Name).IsRequired().HasMaxLength(30);
-            
+
+
+
+            builder.Entity<Plan>().HasKey(p => p.Id);
+            builder.Entity<Plan>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Plan>().Property(p => p.Name).IsRequired().HasMaxLength(30);
+
             //TODO: Establecer relaciones con otras tablas
             /*
              Uno a muchos
@@ -58,14 +74,14 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 .WithMany(p => p.ProductTags)
                 .HasForeignKey(pt => pt.TagId);
              */
-            
+
             /* TODO: DEPARTMENT: Activar cuando Province este implementado
              builder.Entity<Department>()
                 .HasMany(p => p.Provinces)
                 .WithOne(p => p.Category)
                 .HasForeignKey(p => p.CategoryId);
             */
-            
+
             //TODO: Crear seed data o data inicial para no tener que crearlo en los endpoints a cada rato
             /*
             builder.Entity<Product>().HasData
@@ -96,6 +112,19 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 {
                     Id=3, Name="Tacna"
                 }
+            );
+
+
+            builder.Entity<Plan>().HasData(
+                new Plan
+                {
+                    Id = 1, Name = "Free"
+                },
+                new Plan
+                {
+                    Id = 2, Name = "Premium"
+                }
+                
             );
             
             builder.ApplySnakeCaseNamingConvention();
