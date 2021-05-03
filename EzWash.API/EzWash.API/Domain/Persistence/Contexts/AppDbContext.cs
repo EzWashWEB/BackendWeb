@@ -15,6 +15,7 @@ namespace EzWash.API.Domain.Persistence.Contexts
         
         //GEOGRAPHIC
         public DbSet<Department> Deparments { get; set; }
+        public DbSet<Province> Provinces { get; set; }
 
         public DbSet<Wallet> Wallets { get; set; }
 
@@ -36,7 +37,7 @@ namespace EzWash.API.Domain.Persistence.Contexts
             //HINT: builder.Entity<Category>().ToTable("Categories");
             
             builder.Entity<Department>().ToTable("Departments");
-
+            builder.Entity<Province>().ToTable("Provinces");
             builder.Entity<Wallet>().ToTable("Wallets");
 
 
@@ -53,6 +54,9 @@ namespace EzWash.API.Domain.Persistence.Contexts
             builder.Entity<Department>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Department>().Property(p => p.Name).IsRequired().HasMaxLength(30);
 
+            builder.Entity<Province>().HasKey(p => p.Id);
+            builder.Entity<Province>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Province>().Property(p => p.Name).IsRequired().HasMaxLength(30);
 
 
             builder.Entity<Wallet>().HasKey(p => p.Id);
@@ -95,12 +99,20 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 .HasForeignKey(pt => pt.TagId);
              */
 
-            /* TODO: DEPARTMENT: Activar cuando Province este implementado
+
              builder.Entity<Department>()
                 .HasMany(p => p.Provinces)
-                .WithOne(p => p.Category)
-                .HasForeignKey(p => p.CategoryId);
-            */
+                .WithOne(p => p.Department)
+                .HasForeignKey(p => p.DepartmentId);
+             
+             //TODO: Activar cuando Districts este implementado
+             /*
+              builder.Entity<Province>()
+                .HasMany(p => p.Districts)
+                .WithOne(p => p.Province)
+                .HasForeignKey(p => p.ProvinceId);
+              */
+
 
             //TODO: Crear seed data o data inicial para no tener que crearlo en los endpoints a cada rato
             /*
@@ -131,6 +143,20 @@ namespace EzWash.API.Domain.Persistence.Contexts
                 new Department
                 {
                     Id=3, Name="Tacna"
+                }
+            );
+            builder.Entity<Province>().HasData(
+                new Province
+                {
+                    Id=1, Name="Callao", DepartmentId = 1
+                },
+                new Province
+                {
+                    Id=2, Name="Ayabaca", DepartmentId = 2
+                },
+                new Province
+                {
+                    Id=3, Name="Candarave", DepartmentId = 3
                 }
             );
 
