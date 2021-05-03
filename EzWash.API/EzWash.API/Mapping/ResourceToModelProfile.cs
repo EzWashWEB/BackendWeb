@@ -10,6 +10,8 @@ namespace EzWash.API.Mapping
         {
             CreateMap<SaveDepartmentResource, Department>();
 
+            CreateMap<SaveProvinceResource, Province>();
+
             CreateMap<SaveWalletResource, Wallet>();
 
             CreateMap<SavePlanResource, Plan>();

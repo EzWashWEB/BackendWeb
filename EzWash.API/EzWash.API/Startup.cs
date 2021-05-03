@@ -49,10 +49,10 @@ namespace EzWash.API
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            
             services.AddScoped<IDepartmentService, DepartmentService>();
 
-
+            services.AddScoped<IProvinceRepository, ProvinceRepository>();
+            services.AddScoped<IProvinceService, ProvinceService>();
 
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddScoped<IWalletService, WalletService>();
