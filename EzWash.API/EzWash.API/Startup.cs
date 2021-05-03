@@ -52,6 +52,12 @@ namespace EzWash.API
             
             services.AddScoped<IDepartmentService, DepartmentService>();
 
+
+
+            services.AddScoped<IPlanRepository, PlanRepository>();
+
+            services.AddScoped<IPlanService, PlanService>();
+
             // Apply Endpoint Naming Convention
             services.AddRouting(options => options.LowercaseUrls = true);
             

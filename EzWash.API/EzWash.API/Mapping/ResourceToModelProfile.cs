@@ -9,6 +9,7 @@ namespace EzWash.API.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveDepartmentResource, Department>();
+            CreateMap<SavePlanResource, Plan>();
         }
     }
 }
