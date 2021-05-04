@@ -1,4 +1,6 @@
-﻿namespace EzWash.API.Domain.Models
+﻿using System.Collections.Generic;
+
+namespace EzWash.API.Domain.Models
 {
     public class Province
     {
@@ -9,7 +11,6 @@
         public Department Department { get; set; }
         
         //one to many con district
-        //TODO: Implementar District
-        //public IList<District> Districts { get; set; } = new List<District>();
+        public IList<District> Districts { get; set; } = new List<District>();
     }
 }
