@@ -29,7 +29,7 @@ namespace EzWash.API.Controllers
             Summary = "List all Provinces by DepartmentId",
             Description = "List of Provinces by DepartmentId",
             OperationId = "ListAllProvincesByDepartmentId")]
-        [SwaggerResponse(200, "List of Provinces by DepartmentId", typeof(IEnumerable<DepartmentResource>))]
+        [SwaggerResponse(200, "List of Provinces by DepartmentId", typeof(IEnumerable<ProvinceResource>))]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ProvinceResource>), 200)]
         public async Task<IEnumerable<ProvinceResource>> GetAllByDepartmentIdAsync(int departmentId)
