@@ -53,6 +53,9 @@ namespace EzWash.API
 
             services.AddScoped<IProvinceRepository, ProvinceRepository>();
             services.AddScoped<IProvinceService, ProvinceService>();
+            
+            services.AddScoped<IDistrictRepository, DistrictRepository>();
+            services.AddScoped<IDistrictService, DistrictService>();
 
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddScoped<IWalletService, WalletService>();

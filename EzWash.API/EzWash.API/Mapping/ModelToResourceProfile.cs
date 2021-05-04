@@ -14,6 +14,8 @@ namespace EzWash.API.Mapping
 
             CreateMap<Province, ProvinceResource>();
 
+            CreateMap<District, DistrictResource>();
+
             CreateMap<Wallet, WalletResource>();
 
             CreateMap<Plan, PlanResource>();
