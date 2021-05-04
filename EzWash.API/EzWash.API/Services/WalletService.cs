@@ -12,6 +12,13 @@ namespace EzWash.API.Services
     {
         private readonly IWalletRepository _walletRepository;
         private readonly IUnitOfWork _unitOfWork;
+
+        public WalletService(IWalletRepository planRepository, IUnitOfWork unitOfWork = null)
+        {
+            _walletRepository = planRepository;
+            _unitOfWork = unitOfWork;
+        }
+
         public async Task<WalletResponse> DeleteAsync(int id)
         {
             //TODO change this-->
