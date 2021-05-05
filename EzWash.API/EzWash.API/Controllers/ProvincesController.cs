@@ -40,6 +40,11 @@ namespace EzWash.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get Province by DepartmentId And Id",
+            Description = "Get a Province by DepartmentId And Id",
+            OperationId = "GetProvinceByDepartmentIdAndId")]
+        [SwaggerResponse(200, "Get a Province by DepartmentId And Id", typeof(IEnumerable<ProvinceResource>))]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProvinceResponse), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -53,6 +58,11 @@ namespace EzWash.API.Controllers
             return Ok(provinceResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Save Province by DepartmentId",
+            Description = "Save a Province by DepartmentId",
+            OperationId = "SaveProvinceByDepartmentId")]
+        [SwaggerResponse(200, "Save a Province by DepartmentId", typeof(IEnumerable<ProvinceResource>))]
         [HttpPost]
         [ProducesResponseType(typeof(ProvinceResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -69,6 +79,11 @@ namespace EzWash.API.Controllers
             return Ok(provinceResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Province by DepartmentId And Id",
+            Description = "Update a Province by DepartmentId And Id",
+            OperationId = "UpdateProvinceByDepartmentIdAndId")]
+        [SwaggerResponse(200, "Update a Province by DepartmentId And Id", typeof(IEnumerable<ProvinceResource>))]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ProvinceResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -85,6 +100,11 @@ namespace EzWash.API.Controllers
             return Ok(provinceResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete Province by DepartmentId And Id",
+            Description = "Delete a Province by DepartmentId And Id",
+            OperationId = "DeleteProvinceByDepartmentIdAndId")]
+        [SwaggerResponse(200, "Delete a Province by DepartmentId And Id", typeof(IEnumerable<ProvinceResource>))]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(ProvinceResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
