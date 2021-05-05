@@ -39,6 +39,7 @@ namespace EzWash.API
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+                //options.UseMySQL(Configuration.GetConnectionString("AzureMySQLConnection"));
             });
             
             //TODO: Dependency Injection Configuration
