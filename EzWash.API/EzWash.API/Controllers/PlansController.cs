@@ -39,6 +39,11 @@ namespace EzWash.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get Plan by id",
+            Description = "Get a Plan",
+            OperationId = "GetPlanById")]
+        [SwaggerResponse(200, "Get a Plan", typeof(IEnumerable<PlanResource>))]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(PlanResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -52,6 +57,11 @@ namespace EzWash.API.Controllers
             return Ok(planResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Save Plan",
+            Description = "Save a Plan",
+            OperationId = "SavePlan")]
+        [SwaggerResponse(200, "Save a Plan", typeof(IEnumerable<PlanResource>))]
         [HttpPost]
         [ProducesResponseType(typeof(PlanResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -68,6 +78,11 @@ namespace EzWash.API.Controllers
             return Ok(planResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Plan By Id",
+            Description = "Update a Plan By Id",
+            OperationId = "UpdatePlanById")]
+        [SwaggerResponse(200, "Update a Plan By Id", typeof(IEnumerable<PlanResource>))]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(PlanResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -84,6 +99,11 @@ namespace EzWash.API.Controllers
             return Ok(planResource);
         }
 
+        [SwaggerOperation(
+           Summary = "Delete Plan By Id",
+           Description = "Delete a Plan By Id",
+           OperationId = "DeletePlanById")]
+        [SwaggerResponse(200, "Delete a Plan By Id", typeof(IEnumerable<PlanResource>))]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(PlanResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
