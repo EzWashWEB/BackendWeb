@@ -39,6 +39,11 @@ namespace EzWash.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get Department by id",
+            Description = "Get a Department",
+            OperationId = "GetDepartmentById")]
+        [SwaggerResponse(200, "Get a Department", typeof(IEnumerable<DepartmentResource>))]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(DepartmentResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -52,6 +57,11 @@ namespace EzWash.API.Controllers
             return Ok(departmentResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Save Department",
+            Description = "Save a Department",
+            OperationId = "SaveDepartment")]
+        [SwaggerResponse(200, "Save a Department", typeof(IEnumerable<DepartmentResource>))]
         [HttpPost]
         [ProducesResponseType(typeof(DepartmentResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -68,6 +78,11 @@ namespace EzWash.API.Controllers
             return Ok(departmentResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Department By Id",
+            Description = "Update a Department By Id",
+            OperationId = "UpdateDepartmentById")]
+        [SwaggerResponse(200, "Update a Department By Id", typeof(IEnumerable<DepartmentResource>))]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(DepartmentResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -84,6 +99,11 @@ namespace EzWash.API.Controllers
             return Ok(departmentResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete Department By Id",
+            Description = "Delete a Department By Id",
+            OperationId = "DeleteDepartmentById")]
+        [SwaggerResponse(200, "Delete a Department By Id", typeof(IEnumerable<DepartmentResource>))]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(DepartmentResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
