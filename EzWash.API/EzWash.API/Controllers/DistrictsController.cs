@@ -39,6 +39,11 @@ namespace EzWash.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get District by DepartmentId, ProvinceId And Id",
+            Description = "Get a District by DepartmentId, ProvinceId And Id",
+            OperationId = "GetDistrictByDepartmentIdProvinceIdAndId")]
+        [SwaggerResponse(200, "Get a District by DepartmentId, ProvinceId And Id", typeof(IEnumerable<DistrictResource>))]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(DistrictResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -52,6 +57,11 @@ namespace EzWash.API.Controllers
             return Ok(districtResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Save District by DepartmentId and ProvinceId",
+            Description = "Save a District by DepartmentId and ProvinceId",
+            OperationId = "SaveDistrictByDepartmentIdAndProvinceId")]
+        [SwaggerResponse(200, "Save a District by DepartmentId and ProvinceId", typeof(IEnumerable<DistrictResource>))]
         [HttpPost]
         [ProducesResponseType(typeof(DistrictResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -67,6 +77,11 @@ namespace EzWash.API.Controllers
             return Ok(districtResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update District by DepartmentId, ProvinceId And Id",
+            Description = "Update a District by DepartmentId, ProvinceId And Id",
+            OperationId = "UpdateDistrictByDepartmentIdProvinceIdAndId")]
+        [SwaggerResponse(200, "Update a District by DepartmentId, ProvinceId And Id", typeof(IEnumerable<DistrictResource>))]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(DistrictResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -82,6 +97,11 @@ namespace EzWash.API.Controllers
             return Ok(districtResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete District by DepartmentId, ProvinceId And Id",
+            Description = "Delete a District by DepartmentId, ProvinceId And Id",
+            OperationId = "DeleteDistrictByDepartmentIdProvinceIdAndId")]
+        [SwaggerResponse(200, "Delete a District by DepartmentId, ProvinceId And Id", typeof(IEnumerable<DistrictResource>))]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(DistrictResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
