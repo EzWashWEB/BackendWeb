@@ -39,6 +39,11 @@ namespace EzWash.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get Wallet by id",
+            Description = "Get a Wallet",
+            OperationId = "GetWalletById")]
+        [SwaggerResponse(200, "Get a Wallet", typeof(IEnumerable<WalletResource>))]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(WalletResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -52,6 +57,11 @@ namespace EzWash.API.Controllers
             return Ok(walletResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Save Wallet",
+            Description = "Save a Wallet",
+            OperationId = "SaveWallet")]
+        [SwaggerResponse(200, "Save a Wallet", typeof(IEnumerable<WalletResource>))]
         [HttpPost]
         [ProducesResponseType(typeof(WalletResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -68,6 +78,11 @@ namespace EzWash.API.Controllers
             return Ok(walletResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Wallet By Id",
+            Description = "Update a Wallet By Id",
+            OperationId = "UpdateWalletById")]
+        [SwaggerResponse(200, "Update a Wallet By Id", typeof(IEnumerable<WalletResource>))]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(WalletResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -84,6 +99,12 @@ namespace EzWash.API.Controllers
             return Ok(walletResource);
         }
 
+
+        [SwaggerOperation(
+            Summary = "Delete Wallet By Id",
+            Description = "Delete a Wallet By Id",
+            OperationId = "DeleteWalletById")]
+        [SwaggerResponse(200, "Delete a Wallet By Id", typeof(IEnumerable<WalletResource>))]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(WalletResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
