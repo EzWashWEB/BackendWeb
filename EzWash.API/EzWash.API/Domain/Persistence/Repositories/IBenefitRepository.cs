@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EzWash.API.Domain.Persistence.Repositories
 {
-    interface IBenefitRepository
+    public interface IBenefitRepository
     {
         Task<IEnumerable<Benefit>> ListAsync();
         Task AddAsync(Benefit benefit);
